@@ -1,13 +1,15 @@
 let connectButton;
 let readyToReceive;
 
-let mSerial; 
-let waterImage, lightImage; 
+let mSerial;
+let waterImage, lightImage;
+let waterButtonState;
+let lightSensorValue;
 
 function preload() {
 
-  waterImage = loadImage("/Users/chenziyi/Desktop/Final/water.jpg");
-  lightImage = loadImage("/Users/chenziyi/Desktop/Final/light.jpg"); 
+  waterImage = loadImage("water.jpg");
+  lightImage = loadImage("light.jpg");
 }
 
 function receiveSerial() {
@@ -15,23 +17,20 @@ function receiveSerial() {
   trim(line);
   if (!line) return;
 
-  if (line.charAt(0) != "{") {
-    print("error: ", line);
-    readyToReceive = true;
-    return;
-  }
+  // if (line.charAt(0) != "{") {
+  //   print("error: ", line);
+  //   readyToReceive = true;
+  //   return;
+  // }
 
-  let data = JSON.parse(line).data;
-  let waterButtonState = data.waterButtonState;
-  let lightSensorValue = data.lightSensorValue;
+  // let data = JSON.parse(line).data;
 
 
-  if (waterButtonState == 1) {
-    image(waterImage, 0, 0, width, height); 
-  } else if (lightSensorValue > someThreshold) { 
-    image(lightImage, 0, 0, width, height); 
-  }
-  
+  print(line);
+  let values = line.split(",");
+  waterButtonState = values[0];
+  lightSensorValue = values[1];
+
   readyToReceive = true;
 }
 
@@ -55,10 +54,15 @@ function setup() {
 }
 
 function draw() {
-  if (mSerial.opened() && readyToReceive) {
-    readyToReceive = false;
-    mSerial.clear();
-    mSerial.write(0xab);
+  background("black")// if (mSerial.opened() && readyToReceive) {
+  //   readyToReceive = false;
+  //   mSerial.clear();
+  //   mSerial.write(0xab);
+  // }
+  if (waterButtonState == 1) {
+    image(waterImage, width - width / 5, 0, width / 5, height / 5);
+  } else if (lightSensorValue > 350) {
+    image(lightImage, 0, 0, width / 5, height / 5);
   }
 
   if (mSerial.availableBytes() > 0) {
