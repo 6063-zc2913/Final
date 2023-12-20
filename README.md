@@ -36,6 +36,8 @@ Would Chris Crawford consider it interactive?
 How do you plan on testing your project?
 · Find two or three users to test, and see whether their plants will die or flowering.
 
+12.13
+During this week, I drew the plant animation frame by frame, turned it into a spritesheet and added it to the code. What I will do next week is to draw the watering animation to show the difference, and draw a state for the plants without watering or light.
 
 
 
