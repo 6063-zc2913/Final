@@ -37,3 +37,13 @@ How do you plan on testing your project?
 · Find two or three users to test, and see whether their plants will die or flowering.
 
 
+
+
+12.20
+I've added two bars to the original code where watering is counted and showed by a blue bar with the water button pressed, and lightning counted and showed by a orange bar with light sensor. My idea is that while both light and water are beneficial for plants, they should be provided in moderation. Therefore, when either bar exceeds the window height, a black and white photo of a dead plant is displayed, indicating overexposure or watering.
+
+This feature was an afterthought following the completion of the original program. I anticipated a straightforward addition of the bars and the display of the plant's death image upon exceeding screen limits. However, unexpected conflicts arose, such as the simultaneous occurrence of the plant dying image and the ongoing watering/light exposure animations.Various unexpected problems always arise during the process of writing code, which is really challenging for me. I am very grateful to the professor for his help.
+
+
+Why this project important？
+· In my project, I've integrated technology with plant care by simulating essential aspects like watering and light exposure. It realistically mirrors plant care through visual bars that monitor these factors. A unique feature is the educational element – when the bars exceed a certain threshold, an image of a dead plant appears, teaching about the delicate balance needed in nurturing plants. This aspect underscores the importance of avoiding both neglect and over-care, illustrating that extremes in plant maintenance can be detrimental.
